@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <div class="column is-6 is-offset-3">
+            <h1 class="title">
+                Welcome To Our Online Bookstore!
+            </h1>
+
+            <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger" id="browse-button">
+                    <a class="button" aria-haspopup="true" aria-controls="dropdown-menu7" href="{% url 'products' %}">
+                        <span class="icon">
+                            <i class="fa fa-book"></i>
+                        </span>
+                        <span>Browse The Books!</span>
+                    </a>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu7" role="menu">
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <div class="hide">
+                                <div class="heart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    
+    {% endblock %}

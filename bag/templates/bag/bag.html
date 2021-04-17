@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block content %}
+
+
+
+<h1 id="bag-product-count-display" data-product_count="{{ product_count }}">
+    Your Shopping Bag: {{ product_count }} items
+</h1>
+
+<hr>
+
+<div class="table-container">
+    {% if bag_items %}
+    <table class="table is-fullwidth">
+        <thead>
+            <tr>
+                <th>Items Info
+                    <span class="icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </span>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <div class="tfoot">
+                <h2>
+                    <span class="icon">
+                        <i class="fa fa-book"></i>
+                    </span>
+                    <strong>Items: €{{ total|floatformat:2 }}</strong>
+                </h2>
+                <h2>
+                    <span class="icon">
+                        <i class="fas fa-truck"></i>
+                    </span>
+                    Delivery: €{{ delivery|floatformat:2 }}
+                </h2>
+                <h2>
+                    <span class="icon">
+                        <i class="fas fa-equals"></i>
+                    </span>
+                    <strong>Bag Grand Total: €{{ grand_total|floatformat:2 }}</strong>
+                </h2>
+                {% if free_delivery_delta > 0 %}
+                <p>
+                    You're <strong>€{{ free_delivery_delta }}</strong> away from a free delivery...
+                </p>
+                {% endif %}
+            </div>
+        </tfoot>
+        <tbody>
+            {% for item in bag_items %}
+            <tr>
+                <td><img src="{{ item.product.image.url }}" alt="{{ product.name }}" /></td>
+                <td>
+                    <p><strong><em>{{ item.product.name }}</em></strong></p>
+                    <p><strong>{{ item.product.author}}</strong></p>
+                    <p>SKU: {{ item.product.sku|upper }}</p>
+                </td>
+
+                <td>
+                    <p>Unit Price: €{{ item.product.price }}</p>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Item Total: €{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                </td>
+
+                <td>
+                    {% include "bag/quantity-form.html" %}
+                </td>
+
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">
+                    <button class="button" id="keep-shopping">
+                        <a href="{% url 'products' %}">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                            <span>Keep Shopping</span>
+                        </a>
+                    </button>
+                    <button class="button" id="secure-checkout">
+                        <a href="{% url 'checkout' %}">
+                            <span>Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <p>Your bag is empty.</p>
+    <a href="{% url 'products' %}">
+        <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+        <span>Keep Shopping</span>
+    </a>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function (e) {
+        var form = $(this).prevAll('.quantity-control-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/bag/remove/${itemId}/`;
+        var data = { 'csrfmiddlewaretoken': csrfToken };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
+{% endblock %}

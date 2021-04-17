@@ -1,0 +1,13 @@
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+#card-element {
+    background-color: #fff;
+}
