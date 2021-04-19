@@ -78,7 +78,7 @@
             {% endfor %}
             <tr>
                 <td colspan="4">
-                    <button class="button" id="keep-shopping">
+                    <button class="button keep-shopping">
                         <a href="{% url 'products' %}">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
@@ -102,12 +102,15 @@
     </table>
     {% else %}
     <p>Your bag is empty.</p>
-    <a href="{% url 'products' %}">
-        <span class="icon">
-            <i class="fas fa-chevron-left"></i>
-        </span>
-        <span>Keep Shopping</span>
-    </a>
+    <button class="button keep-shopping">
+        <a href="{% url 'products' %}">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-shopping-cart"></i>
+            </span>
+            <span>Keep Shopping</span>
+        </a>
+    </button>
     {% endif %}
 
 
@@ -131,7 +134,9 @@
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/bag/remove/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        var data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
 
         $.post(url, data)
             .done(function () {

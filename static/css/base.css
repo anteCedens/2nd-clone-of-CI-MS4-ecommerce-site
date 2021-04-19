@@ -188,7 +188,7 @@ tbody td {
 }
 
 a[class="remove-item"], 
-#keep-shopping {
+.keep-shopping {
     margin-right: 1em;
 }
 
@@ -207,14 +207,14 @@ input[class="input qty_input"] {
     font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
 }
 
-#keep-shopping, 
+.keep-shopping, 
 #secure-checkout {
     color: #fff;
     background-color: hsl(0, 0%, 29%);
     font-weight: bolder;
 }
 
-#keep-shopping:hover, 
+.keep-shopping:hover, 
 #secure-checkout:hover {
     /* These colors are to match the Bulma styling
     for hovering over buttons*/
