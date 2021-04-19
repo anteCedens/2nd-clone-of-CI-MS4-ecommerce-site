@@ -100,16 +100,18 @@
         </tbody>
     </table>
     {% else %}
-    <p>Your bag is empty.</p>
-    <button class="button keep-shopping">
-        <a href="{% url 'products' %}">
-            <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </span>
-            <span>Keep Shopping</span>
-        </a>
-    </button>
+    <div id="empty-bag">
+        <p>Your bag is empty.</p>
+        <button class="button keep-shopping">
+            <a href="{% url 'products' %}">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-shopping-cart"></i>
+                </span>
+                <span>Keep Shopping</span>
+            </a>
+        </button>
+    </div>
     {% endif %}
 
 

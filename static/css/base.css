@@ -228,6 +228,16 @@ input[class="input qty_input"] {
     margin-left: 1rem;
 }
 
+#empty-bag {
+    margin-left: 1rem;
+    margin-bottom: 8rem;
+}
+
+#empty-bag p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .tfoot h2 {
     margin-left: 0.65rem;
 }
