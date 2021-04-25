@@ -56,9 +56,21 @@
             <hr class="my-0">
             <div class="row text-black text-right">
                 <div class="col-7 offset-2">
-                    <p class="my-0">Items:</p>
-                    <p class="my-0">Delivery:</p>
-                    <p class="my-0">Order Grand Total:</p>
+                    <p class="my-0">
+                        <span class="icon">
+                            <i class="fa fa-book"></i>
+                        </span>Items:
+                    </p>
+                    <p class="my-0">
+                        <span class="icon">
+                            <i class="fas fa-truck"></i>
+                        </span> Delivery:
+                    </p>
+                    <p class="my-0">
+                        <span class="icon">
+                            <i class="fas fa-equals"></i>
+                        </span>Order Grand Total:
+                    </p>
                 </div>
                 <div class="col-3">
                     <p class="my-0">€{{ total | floatformat:2 }}</p>
