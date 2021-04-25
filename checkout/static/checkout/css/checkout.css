@@ -11,3 +11,10 @@ select option[value=""] {
 #card-element {
     background-color: #fff;
 }
+
+/* ------------------------------- */
+
+#checkout-heading {
+    font-size: 2rem;
+    font-weight: bolder;
+}
