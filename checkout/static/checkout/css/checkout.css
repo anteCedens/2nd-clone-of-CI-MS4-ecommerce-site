@@ -18,3 +18,13 @@ select option[value=""] {
     font-size: 2rem;
     font-weight: bolder;
 }
+
+/*Bootstrap would set this to be 'underline'*/
+a:hover {
+    text-decoration: initial;
+}
+
+/*Bootstrap would set this to be '#fff'*/
+.dropdown-menu {
+    background-color: initial;
+}
