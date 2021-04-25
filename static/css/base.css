@@ -2,13 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
 
 
-html, body {
+html, 
+body {
     height: 100%;
     min-height: 100%;
     font-family: 'Dekko', 'Courier New', Courier, monospace;
 }
 
-*, *:before, *:after {
+/* Internet Explorer 8 and below only supported :before, not ::before.
+All modern browsers support it both ways.
+https://css-tricks.com/to-double-colon-or-not-do-double-colon/ */
+*, 
+*:before, 
+*:after {
   box-sizing: border-box;
 }
 
