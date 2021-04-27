@@ -28,3 +28,15 @@ a:hover {
 .dropdown-menu {
     background-color: initial;
 }
+
+#submit-button {
+    color: #fff;
+    background-color: hsl(0, 0%, 29%);
+    font-weight: bolder;
+    margin-left: 1rem;
+}
+
+#submit-button:hover {
+    border-color: #b5b5b5;
+    color: #363636;
+}
