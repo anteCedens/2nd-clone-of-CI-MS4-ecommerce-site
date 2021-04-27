@@ -30,7 +30,7 @@
                     <p class="mb-1 mt-0 small">Item</p>
                 </div>
                 <div class="col-3 text-right">
-                    <p class="mb-1 mt-0 small">Subtotal</p>
+                    <p class="mb-1 mt-0 small">Item Total</p>
                 </div>
             </div>
             {% for item in bag_items %}
@@ -46,6 +46,7 @@
                 </div>
                 <div class="col-7">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                    <p class="my-0 small">by {{ item.product.author }}</p>
                     <p class="my-0 small">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-right">
