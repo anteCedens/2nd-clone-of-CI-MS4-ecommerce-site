@@ -1,4 +1,6 @@
-/*START: CSS from Stripe's documentation*/
+/*START: CSS from Stripe's documentation
+To style all the other checkout form input fields as well,
+just add ".stripe-style-input" where appropriate*/
 /*
 .StripeElement,
 .stripe-style-input {
