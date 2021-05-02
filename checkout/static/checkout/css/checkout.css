@@ -41,11 +41,11 @@ select option[value=""] {
 
 #card-element {
     background-color: #fff;
-    height: calc(38px + 5px);
+    height: calc(40px + 5px);
     border-radius: 5px;
     border: 5px solid hsl(0, 0%, 29%);
     text-align: center;
-    padding-top: 7px;
+    padding: 10px 12px;
 }
 
 #card-errors {
