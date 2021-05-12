@@ -82,3 +82,26 @@ a:hover {
     border-color: #b5b5b5;
     color: #363636;
 }
+
+/*START: loading-overlay CSS taken from the tutorial project*/
+
+#loading-overlay {
+	display: none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 162, 184, .85);
+    z-index: 9999;
+}
+
+.loading-spinner {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
+
+/*END: loading-overlay CSS taken from the tutorial project*/
